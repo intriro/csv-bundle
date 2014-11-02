@@ -1,0 +1,29 @@
+{
+    "name" : "intriro/csv-bundle",
+    "license" : "MIT",
+    "type" : "symfony-bundle",
+    "description" : "Integration of Goodby CSV into Symfony2",
+    "homepage" : "https://github.com/intriro/csv-bundle",
+    "keywords" : ["csv", "goodby csv", "symfony", "bundle"],
+    "authors" : [{
+            "name" : "alsar",
+            "email" : "ales@intriro.com"
+        }
+    ],
+    "autoload" : {
+        "psr-4" : {
+            "Intriro\\Bundle\\CsvBundle\\" : "src"
+        }
+    },
+    "require" : {
+        "goodby/csv" : "1.1.*"
+    },
+    "config" : {
+        "bin-dir" : "bin"
+    },
+    "extra" : {
+        "branch-alias" : {
+            "dev-master" : "0.0.x-dev"
+        }
+    }
+}
