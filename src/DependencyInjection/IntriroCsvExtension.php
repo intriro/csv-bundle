@@ -37,7 +37,7 @@ class IntriroCsvExtension extends Extension
         foreach ($config as $exporterName => $exporterConfig) {
             $config = new LexerConfig();
 
-            $lexerConfigDefinition = new Definition(LexerConfig::class);
+            $lexerConfigDefinition = new Definition('Goodby\CSV\Import\Standard\LexerConfig');
 
             if ($exporterConfig['delimiter']) {
                 $lexerConfigDefinition->addMethodCall('setDelimiter', [$exporterConfig['delimiter']]);
@@ -59,7 +59,7 @@ class IntriroCsvExtension extends Extension
                 $lexerConfigDefinition->addMethodCall('setFromCharset', [$exporterConfig['from_charset']]);
             }
 
-            $lexerDefinition = new Definition(Lexer::class, [$lexerConfigDefinition]);
+            $lexerDefinition = new Definition('Goodby\CSV\Import\Standard\Lexer', [$lexerConfigDefinition]);
 
             $lexerId = 'intriro_csv.exporter.'.$exporterName;
 
@@ -76,7 +76,7 @@ class IntriroCsvExtension extends Extension
         foreach ($config as $importerName => $importerConfig) {
             $config = new LexerConfig();
 
-            $exporterConfigDefinition = new Definition(ExporterConfig::class);
+            $exporterConfigDefinition = new Definition('Goodby\CSV\Export\Standard\ExporterConfig');
 
             if ($importerConfig['delimiter']) {
                 $exporterConfigDefinition->addMethodCall('setDelimiter', [$importerConfig['delimiter']]);
@@ -98,7 +98,7 @@ class IntriroCsvExtension extends Extension
                 $exporterConfigDefinition->addMethodCall('setFromCharset', [$importerConfig['from_charset']]);
             }
 
-            $exporterDefinition = new Definition(Exporter::class, [$exporterConfigDefinition]);
+            $exporterDefinition = new Definition('Goodby\CSV\Export\Standard\Exporter', [$exporterConfigDefinition]);
 
             $lexerId = 'intriro_csv.importer.'.$importerName;
 
