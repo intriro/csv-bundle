@@ -34,34 +34,34 @@ class IntriroCsvExtension extends Extension
      */
     protected function loadImporters(array $config, ContainerBuilder $container)
     {
-        foreach ($config as $exporterName => $exporterConfig) {
+        foreach ($config as $importerName => $importerConfig) {
             $config = new LexerConfig();
 
             $lexerConfigDefinition = new Definition('Goodby\CSV\Import\Standard\LexerConfig');
 
-            if ($exporterConfig['delimiter']) {
-                $lexerConfigDefinition->addMethodCall('setDelimiter', [$exporterConfig['delimiter']]);
+            if ($importerConfig['delimiter']) {
+                $lexerConfigDefinition->addMethodCall('setDelimiter', [$importerConfig['delimiter']]);
             }
 
-            if ($exporterConfig['enclosure']) {
-                $lexerConfigDefinition->addMethodCall('setEnclosure', [$exporterConfig['enclosure']]);
+            if ($importerConfig['enclosure']) {
+                $lexerConfigDefinition->addMethodCall('setEnclosure', [$importerConfig['enclosure']]);
             }
 
-            if ($exporterConfig['escape']) {
-                $lexerConfigDefinition->addMethodCall('setEscape', [$exporterConfig['escape']]);
+            if ($importerConfig['escape']) {
+                $lexerConfigDefinition->addMethodCall('setEscape', [$importerConfig['escape']]);
             }
 
-            if ($exporterConfig['to_charset']) {
-                $lexerConfigDefinition->addMethodCall('setToCharset', [$exporterConfig['to_charset']]);
+            if ($importerConfig['to_charset']) {
+                $lexerConfigDefinition->addMethodCall('setToCharset', [$importerConfig['to_charset']]);
             }
 
-            if ($exporterConfig['from_charset']) {
-                $lexerConfigDefinition->addMethodCall('setFromCharset', [$exporterConfig['from_charset']]);
+            if ($importerConfig['from_charset']) {
+                $lexerConfigDefinition->addMethodCall('setFromCharset', [$importerConfig['from_charset']]);
             }
 
             $lexerDefinition = new Definition('Goodby\CSV\Import\Standard\Lexer', [$lexerConfigDefinition]);
 
-            $lexerId = 'intriro_csv.exporter.'.$exporterName;
+            $lexerId = 'intriro_csv.importer.'.$importerName;
 
             $container->setDefinition($lexerId, $lexerDefinition);
         }
@@ -73,34 +73,34 @@ class IntriroCsvExtension extends Extension
      */
     protected function loadExporters(array $config, ContainerBuilder $container)
     {
-        foreach ($config as $importerName => $importerConfig) {
+        foreach ($config as $exporterName => $exporterConfig) {
             $config = new LexerConfig();
 
             $exporterConfigDefinition = new Definition('Goodby\CSV\Export\Standard\ExporterConfig');
 
-            if ($importerConfig['delimiter']) {
-                $exporterConfigDefinition->addMethodCall('setDelimiter', [$importerConfig['delimiter']]);
+            if ($exporterConfig['delimiter']) {
+                $exporterConfigDefinition->addMethodCall('setDelimiter', [$exporterConfig['delimiter']]);
             }
 
-            if ($importerConfig['enclosure']) {
-                $exporterConfigDefinition->addMethodCall('setEnclosure', [$importerConfig['enclosure']]);
+            if ($exporterConfig['enclosure']) {
+                $exporterConfigDefinition->addMethodCall('setEnclosure', [$exporterConfig['enclosure']]);
             }
 
-            if ($importerConfig['escape']) {
-                $exporterConfigDefinition->addMethodCall('setEscape', [$importerConfig['escape']]);
+            if ($exporterConfig['escape']) {
+                $exporterConfigDefinition->addMethodCall('setEscape', [$exporterConfig['escape']]);
             }
 
-            if ($importerConfig['to_charset']) {
-                $exporterConfigDefinition->addMethodCall('setToCharset', [$importerConfig['to_charset']]);
+            if ($exporterConfig['to_charset']) {
+                $exporterConfigDefinition->addMethodCall('setToCharset', [$exporterConfig['to_charset']]);
             }
 
-            if ($importerConfig['from_charset']) {
-                $exporterConfigDefinition->addMethodCall('setFromCharset', [$importerConfig['from_charset']]);
+            if ($exporterConfig['from_charset']) {
+                $exporterConfigDefinition->addMethodCall('setFromCharset', [$exporterConfig['from_charset']]);
             }
 
             $exporterDefinition = new Definition('Goodby\CSV\Export\Standard\Exporter', [$exporterConfigDefinition]);
 
-            $lexerId = 'intriro_csv.importer.'.$importerName;
+            $lexerId = 'intriro_csv.exporter.'.$exporterName;
 
             $container->setDefinition($lexerId, $exporterDefinition);
         }
