@@ -18,14 +18,17 @@
     "require" : {
         "php" : ">=5.4",
         "symfony/framework-bundle": "~2.2",
-        "goodby/csv" : "1.1.*"
+        "goodby/csv" : "~1.1"
+    },
+    "require-dev": {
+      "phpunit/phpunit": "~4.5"
     },
     "config" : {
         "bin-dir" : "bin"
     },
     "extra" : {
         "branch-alias" : {
-            "dev-master" : "0.0.x-dev"
+            "dev-master" : "0.1.x-dev"
         }
     }
 }
