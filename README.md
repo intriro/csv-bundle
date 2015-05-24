@@ -23,7 +23,7 @@ This bundle can be installed using [composer](http://getcomposer.org) by adding 
 ```json
 {
     "require": {
-        "intriro/csv-bundle": "0.0.*"
+        "intriro/csv-bundle": "0.1.*"
     }
 }
 ```

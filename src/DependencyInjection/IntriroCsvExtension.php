@@ -1,14 +1,12 @@
 <?php
+
 namespace Intriro\Bundle\CsvBundle\DependencyInjection;
 
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 use Symfony\Component\DependencyInjection\Loader;
-use Goodby\CSV\Import\Standard\Lexer;
-use Goodby\CSV\Import\Standard\LexerConfig;
 use Symfony\Component\DependencyInjection\Definition;
-use Goodby\CSV\Export\Standard\ExporterConfig;
 use Goodby\CSV\Export\Standard\Exporter;
 
 class IntriroCsvExtension extends Extension
@@ -35,8 +33,6 @@ class IntriroCsvExtension extends Extension
     protected function loadImporters(array $config, ContainerBuilder $container)
     {
         foreach ($config as $importerName => $importerConfig) {
-            $config = new LexerConfig();
-
             $lexerConfigDefinition = new Definition('Goodby\CSV\Import\Standard\LexerConfig');
 
             if ($importerConfig['delimiter']) {
@@ -74,8 +70,6 @@ class IntriroCsvExtension extends Extension
     protected function loadExporters(array $config, ContainerBuilder $container)
     {
         foreach ($config as $exporterName => $exporterConfig) {
-            $config = new LexerConfig();
-
             $exporterConfigDefinition = new Definition('Goodby\CSV\Export\Standard\ExporterConfig');
 
             if ($exporterConfig['delimiter']) {

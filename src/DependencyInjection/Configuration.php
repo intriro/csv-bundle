@@ -1,4 +1,5 @@
 <?php
+
 namespace Intriro\Bundle\CsvBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
