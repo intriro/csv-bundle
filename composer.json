@@ -17,7 +17,7 @@
     },
     "require" : {
         "php" : ">=5.4",
-        "symfony/framework-bundle": "~2.2",
+        "symfony/framework-bundle": "~2.2|~3.0",
         "goodby/csv" : "~1.1"
     },
     "require-dev": {
