@@ -80,7 +80,7 @@ The services are instances of `Goodby\CSV\Import\Standard\Lexer`.
 ``` yaml
 # app/config/config.yml
 intriro_csv:
-    exporters:
+    exorters:
         foo: ~  # uses the default configuration
 
         bar:
@@ -89,7 +89,7 @@ intriro_csv:
             escape: "\\"            # Customize escape character. Default value is backslash(\)
             to_charset: SJIS-win    # Customize target encoding. Default value is null, no converting.
             from_charset: UTF-8     # Customize CSV file encoding. Default value is null.
-            file_mode: w            # Customize file mode and choose either write or append. Default value is write ('w'). See fopen() php docs
+            file_mode: w            #Customize file mode and choose either write or append. Default value is write ('w'). See fopen() php docs
 ```
 
 The defined exporters from the sample configuration are available as services in the container as `intriro_csv.exporter.foo` and `intriro_csv.exporter.bar`. 
