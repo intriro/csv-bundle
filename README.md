@@ -80,7 +80,7 @@ The services are instances of `Goodby\CSV\Import\Standard\Lexer`.
 ``` yaml
 # app/config/config.yml
 intriro_csv:
-    exorters:
+    exporters:
         foo: ~  # uses the default configuration
 
         bar:
