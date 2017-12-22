@@ -17,11 +17,11 @@
     },
     "require" : {
         "php" : ">=5.4",
-        "symfony/framework-bundle": "~2.2|~3.0",
-        "goodby/csv" : "~1.1"
+        "symfony/framework-bundle": "^2.2 || ^3.0 || ^4.0",
+        "goodby/csv" : "^1.1"
     },
     "require-dev": {
-      "phpunit/phpunit": "~4.5"
+      "phpunit/phpunit": "^4.5"
     },
     "config" : {
         "bin-dir" : "bin"
