@@ -4,7 +4,7 @@ IntriroCsvBundle
 [![Total Downloads](https://poser.pugx.org/intriro/csv-bundle/downloads.svg)](https://packagist.org/packages/intriro/csv-bundle) 
 [![License](https://poser.pugx.org/intriro/csv-bundle/license.svg)](https://packagist.org/packages/intriro/csv-bundle)
 
-Provides integration of the [**goodby/csv**][goodby-csv-homepage] library into Symfony2.
+Provides integration of the [**goodby/csv**][goodby-csv-homepage] library into Symfony.
 
 
 About Goodby CSV
@@ -23,7 +23,7 @@ This bundle can be installed using [composer](http://getcomposer.org) by adding 
 ```json
 {
     "require": {
-        "intriro/csv-bundle": "0.1.*"
+        "intriro/csv-bundle": "^1.0"
     }
 }
 ```
