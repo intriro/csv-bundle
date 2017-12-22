@@ -2,12 +2,11 @@
 
 namespace Intriro\Bundle\CsvBundle\DependencyInjection;
 
+use PHPUnit\Framework\TestCase;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;
-use Symfony\Component\HttpKernel\DependencyInjection\Extension;
-use Goodby\CSV\Export\Standard\Exporter;
 
-class IntriroCsvExtensionTest extends \PHPUnit_Framework_TestCase
+class IntriroCsvExtensionTest extends TestCase
 {
     /**
      * @var ExtensionInterface
@@ -22,7 +21,7 @@ class IntriroCsvExtensionTest extends \PHPUnit_Framework_TestCase
      */
     public function testConfigLoad($config)
     {
-        $this->extension->load(array($config), $container = $this->getContainer());
+        $this->extension->load([$config], $container = $this->getContainer());
 
         $this->assertTrue($container->hasDefinition('intriro_csv.importer.foo'));
         $this->assertTrue($container->hasDefinition('intriro_csv.importer.bar'));
@@ -38,7 +37,7 @@ class IntriroCsvExtensionTest extends \PHPUnit_Framework_TestCase
      */
     public function testObjectGeneration($config)
     {
-        $this->extension->load(array($config), $container = $this->getContainer());
+        $this->extension->load([$config], $container = $this->getContainer());
 
         $importer1 = $container->get('intriro_csv.importer.foo');
         $importer2 = $container->get('intriro_csv.importer.bar');

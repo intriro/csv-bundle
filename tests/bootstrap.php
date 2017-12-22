@@ -1,11 +1,13 @@
 <?php
 
-call_user_func(function () {
-    if (!is_file($autoloadFile = __DIR__.'/../vendor/autoload.php')) {
-        throw new \LogicException('Could not find vendor/autoload.php. Did you run "composer install --dev"?');
-    }
-
-    require_once $autoloadFile;
-
-    \Doctrine\Common\Annotations\AnnotationRegistry::registerLoader('class_exists');
-});
+if (!($loader = @include __DIR__.'/../vendor/autoload.php')) {
+    echo <<<'EOT'
+You need to install the project dependencies using Composer:
+$ wget http://getcomposer.org/composer.phar
+OR
+$ curl -s https://getcomposer.org/installer | php
+$ php composer.phar install --dev
+$ phpunit
+EOT;
+    exit(1);
+}

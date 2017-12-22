@@ -21,9 +21,6 @@ class IntriroCsvExtension extends Extension
 
         $this->loadImporters($config['importers'], $container);
         $this->loadExporters($config['exporters'], $container);
-
-        $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
-        $loader->load('services.yml');
     }
 
     /**
