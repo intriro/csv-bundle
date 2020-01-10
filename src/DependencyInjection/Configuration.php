@@ -12,8 +12,8 @@ class Configuration implements ConfigurationInterface
      */
     public function getConfigTreeBuilder()
     {
-        $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root('intriro_csv');
+        $treeBuilder = new TreeBuilder('intriro_csv');
+        $rootNode = $treeBuilder->getRootNode();
 
         $rootNode
             ->children()
