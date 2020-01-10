@@ -13,7 +13,13 @@ class Configuration implements ConfigurationInterface
     public function getConfigTreeBuilder()
     {
         $treeBuilder = new TreeBuilder('intriro_csv');
-        $rootNode = $treeBuilder->getRootNode();
+
+        if (method_exists($treeBuilder, 'getRootNode')) {
+            $rootNode = $treeBuilder->getRootNode();
+        } else {
+            // Backwards compatibility for symfony 4.1 and older
+            $rootNode = $treeBuilder->root('intriro_csv');
+        }
 
         $rootNode
             ->children()
